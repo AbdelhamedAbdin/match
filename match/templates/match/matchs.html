@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Matchs</title>
+</head>
+<body>
+    {% if all_matches %}
+        {% for match in all_matches %}
+            <div class="matches">
+                <a href="{% url 'match:match_details' match.pk %}">{{ match }}</a>
+            </div>
+        {% endfor %}
+    {% else %}
+    {% endif %}
+</body>
+</html>

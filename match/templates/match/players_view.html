@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Players Page</title>
+    <style>
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            width: 1170px
+        }
+        .col-xs-6:first-of-type {
+            float: left;
+            padding: 10px 0;
+        }
+        .col-xs-6:first-of-type div a {
+            margin: 10px 0;
+            display: block;
+            background-color: #7bb3ff;
+            padding: 10px
+        }
+        .col-xs-6:last-of-type {
+            float: right;
+        }
+        .players {
+            overflow: hidden;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="players">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="main-players">
+                        <h2>Main Players</h2>
+                        {% if player_main %}
+                            {% for main in player_main %}
+                                <div>
+                                    <a href="{% url 'match_statics:player_statics' main.get_id %}">{{ main }}</a>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="sub-players">
+                        <h2>Sub Players</h2>
+                        {% if player_sub %}
+                            {% for sub in player_sub %}
+                                <div>{{ sub }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

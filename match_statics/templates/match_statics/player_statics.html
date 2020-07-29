@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player Statics</title>
+</head>
+<body>
+    <div class="match-statics">
+        <div class="container">
+            <form method="post" action="{% url 'match_statics:player_statics' main_pk.pk %}">
+                {% csrf_token %}
+                <div class="buttons">
+                    <h2>Pass Position</h2>
+                    {% for field in form %}
+                        {{ field.as_hidden }}
+                    {% endfor %}
+                    <div>{{ statics }}</div>
+                    <input type="submit" name="short_pos">
+                    <input type="submit" name="long_pos">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

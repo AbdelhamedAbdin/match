@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Players</title>
+</head>
+<body>
+    {% if not player_main %}
+        <form method="post" action="">
+            {% csrf_token %}
+            <h3>Choose your main players</h3>
+                {{ form }}
+            <input type="submit" value="Main Player">
+        </form>
+    {% else %}
+        <a href="{% url 'match:players' %}">You already have the data go to it</a>
+    {% endif %}
+</body>
+</html>
